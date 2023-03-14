@@ -31,6 +31,9 @@ namespace Sort {
 	}
 }
 namespace {
+	// si el namespace no tiene nombre, los miembros solo son visibles en el scope en el que se define,
+	// en este caso, en Source.cpp. Si se define dentro de otro namespace, solo seria visible dentro 
+	// de ese namespace, etc.
 	void InternalFunction() {
 
 	}
@@ -40,6 +43,7 @@ int main() {
 	
 	InternalFunction();
 	using namespace Sort::Comparision;
-	Sort::Comparision::Less();
+	Less();
+	Sort::Comparision::Less(); // nombre completo
 	return 0;
 }

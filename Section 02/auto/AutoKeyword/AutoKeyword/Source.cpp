@@ -6,7 +6,7 @@ int main() {
 	//One of my favorite features of C++11 ;)
 	auto i = 10;
 	auto j = 5;
-	auto sum = i + 4.3f;
+	auto sum = i + 4.3f; //type is going to be float
 
 	auto result = Sum(i, j);
 	static auto y = 2;

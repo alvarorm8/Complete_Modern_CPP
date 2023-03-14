@@ -14,7 +14,7 @@ int main() {
 	//Register a handler. This handler will be invoked after main returns
 	atexit(EndMessage);
 	Print(5, '#');
-	void(*pfn) (int, char) = Print;
+	void(*pfn) (int, char) = Print; // tiene el mismo retorno (void) y los mismos argumentos (int, char)
 	//One way to invoke function pointer
 	(*pfn)(8, '@');
 	//Another way to invoke function pointer
