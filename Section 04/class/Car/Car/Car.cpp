@@ -5,7 +5,7 @@ Car::Car() {
 
 }
 Car::Car(float amount) {
-	fuel = amount;
+	fuel = amount; // tiene preferencia este valor al que se le da en la definicion (linea 4 de Car.h)
 
 }
 void Car::FillFuel(float amount) {
@@ -25,7 +25,7 @@ void Car::AddPassengers(int count) {
 	passengers = count;
 }
 
-void Car::Dashboard() {
+void Car::Dashboard() const {
 	std::cout << "Fuel level : " << fuel << std::endl;
 	std::cout << "Speed : " << speed << std::endl;
 	std::cout << "Passengers : " << passengers << std::endl; 

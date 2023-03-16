@@ -1,7 +1,7 @@
 #include "Car.h"
 #include <iostream>
 int Car::totalCount = 0;
-Car::Car():Car(0) {
+Car::Car():Car(0) { // se define la logica solo en 1 constructor y en el resto se llama al constructor que se requiere
 	std::cout << "Car()" << std::endl;
 }
 

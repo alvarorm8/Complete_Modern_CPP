@@ -5,7 +5,9 @@ private:
 	float speed{ 0 };
 	int passengers{ 0 };
 	int arr[5] = { 1,2,3 };
-	char *p{};
+	char *p{}; //nullptr
+	//char *p2 = new char{9}; // tambien se puede
+	// auto no se puede usar
 public:
 	Car();
 	Car(float amount);
@@ -13,6 +15,6 @@ public:
 	void Accelerate();
 	void Brake();
 	void AddPassengers(int count); 
-	void Dashboard();
+	void Dashboard() const; // const debe ir tanto en el .h como en .cpp
 	~Car();
 };
