@@ -6,6 +6,7 @@ public:
 	//Default constructor
 	Integer();
 	//Parameterized constructor
+	//explicit Integer(int value); // if we define the constructor as explicit, the compiler can not call it implicitly, so the implicit calls in main will fail
 	Integer(int value);
 	//Copy constructor
 	Integer(const Integer &obj);
@@ -25,6 +26,8 @@ public:
 	Integer operator +(const Integer & a)const;
 
 	void operator ()();
+
+	operator int(); // Type conversion operator, to convert user defined class to primitive, for example: int x = Integer object
 };
 Integer operator +(int x, const Integer &y);
 std::ostream & operator <<(std::ostream & out, const Integer &a);

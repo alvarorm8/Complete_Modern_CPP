@@ -1,6 +1,6 @@
 #include "Integer.h"
 #include <iostream>
-#include <memory>
+#include <memory> // library which contains the smart pointers
 class IntPtr {
 	Integer *m_p;
 public:
@@ -29,6 +29,8 @@ void Process(Integer val) {
 
 int main() {
 	Integer a(3);
+	//a++; // post increment
+	//++a; //pre increment
 	/*auto b(std::move(a));
 	std::cout << a << std::endl;*/
 	Process(std::move(a));

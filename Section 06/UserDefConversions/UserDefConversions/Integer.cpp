@@ -79,6 +79,11 @@ void Integer::operator()() {
 	std::cout << *m_pInt << std::endl; 
 }
 
+Integer::operator int()
+{
+	return *m_pInt;
+}
+
 Integer operator +(int x, const Integer &y) {
 	Integer temp;
 	temp.SetValue(x + y.GetValue());
