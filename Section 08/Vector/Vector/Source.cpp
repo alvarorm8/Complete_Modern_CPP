@@ -23,17 +23,18 @@ int main() {
 	++it;
 
 	--it;
-	it = it + 5;
+	it = it + 5; //jump 5 positions
+	//*it = 20 //we have write access too
 	//Delete
 	it = data.begin();
-	data.erase(it);
+	data.erase(it); //delete position it
 	std::cout << std::endl;
 	for (auto x : data) {
 		std::cout << x << " ";
 	}
 	//Insert
 	it = data.begin() + 5;
-	data.insert(it, 500);
+	data.insert(it, 500); //insert position at it value
 	std::cout << std::endl;
 	for (auto x : data) {
 		std::cout << x << " ";

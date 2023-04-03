@@ -1,5 +1,13 @@
 #include <iostream>
-
+/*
+* constexpr is a keyword from C++11 and represents a constant.
+* 
+* The advantage over const keyword is that constexpr always is evaluated at compile time
+* (not all const expressions are evaluated at compile time but at runtime), so the 
+* program improves its performance.
+* 
+* constexpr should be reserved for those expressions that have to be evaluated at compile time
+*/
 constexpr int GetNumber() {
 	return 42;
 }
@@ -7,7 +15,7 @@ constexpr int Add(int x, int y) {
 	return x + y;
 }
 constexpr int Max(int x, int y) {
-	//Needs C++14 compiler
+	//Needs C++14 compiler to allow if
 	//if (x > y)
 	//	return x;
 	//return y;
@@ -22,7 +30,7 @@ int main() {
 	const int j = GetNumber();
 	int arr1[j];
 
-	//Behaves as a normal function
+	//Behaves as a normal function, not constexpr
 	int x = GetNumber();
 
 	//Error x is not constexpr

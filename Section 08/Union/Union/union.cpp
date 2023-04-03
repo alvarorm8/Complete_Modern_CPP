@@ -1,6 +1,30 @@
 #include <iostream>
 #include <string>
-
+/*
+* A union is similar to a structure, but all elements share the same address, so the union takes less memory. The disadvantage is
+* that if we set the value to an element, the rest of the element will have wrong information if we try to access them.
+* 
+* The size of the union is the size of the largest element inside it. 
+* 
+* In C++ unions can have constructors and destructors, but we can only initialize only 1 member, for example x or ch in Test
+* 
+* If the union has user defined objects with default constructors, the union has not a default constructor and destructor,
+* so we have to write it manually, like in UDT. 
+* 
+* We have to initialize manually the objects inside the union, like a and b in UDT. We do it with the placement new operator, 
+* which does not allocate memory, only initializes it, since in the union, memory has alreay been allocated:
+* 
+* new (address to create the object) object
+* 
+* For example:
+* 
+* new(&udt.s) std::string{"Hello world"} ;
+* 
+* And also, we have to manually destroy the objects. For example for object a in udt:
+* 
+* new (&udt.a) A{} ;
+* udt.a.~A() ;
+*/
 union Test {
 	int x ;
 	char ch ;

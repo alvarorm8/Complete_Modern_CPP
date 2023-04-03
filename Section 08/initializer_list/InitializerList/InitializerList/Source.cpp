@@ -1,6 +1,11 @@
 #include <iostream>
 #include <initializer_list>
 #include <cassert>
+
+/*
+* Initializer list purpose is to initialize user defined objects, like the class Bag in this example, as 
+* an array is initialized. Specially if the user defined object is a container.
+*/
 class Bag {
 	int arr[10];
 	int m_Size{};
@@ -46,7 +51,7 @@ int main() {
 	//Braced list of elements automatically creates an initializer_list object
 	auto values = { 1,2,3,4 };
 
-	//Bag b{ 3,1,8 };
+	Bag b{ 3,1,8 };
 	////b.Add(3);
 	////b.Add(1);
 	////b.Add(8);

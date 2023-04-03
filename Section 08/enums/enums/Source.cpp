@@ -1,5 +1,7 @@
 #include <iostream>
-enum class Color : long{RED=5, GREEN, BLUE} ;
+enum Colour {RED=10, GREEN, BLUE}; //normal enum
+enum class Color : long{RED=5, GREEN = 10, BLUE} ; //scoped enum C++11, we can use Color:: to differentiate between Color and TrafficLight
+//we can pass the type of variable we want, in this case long
 void FillColor(Color color) {
 	//Fill background with some color
 	if(color == Color::RED) {
@@ -20,7 +22,7 @@ int main() {
 	Color c = Color::RED ;
 	FillColor(c) ;
 	FillColor(Color::GREEN) ;
-	FillColor(static_cast<Color>(2)) ;
-	int x = static_cast<int>(Color::RED) ;
+	FillColor(static_cast<Color>(2)) ;//we have to make a cast
+	int x = static_cast<int>(Color::RED) ;//we have to make a cast
 	return 0;
 }
