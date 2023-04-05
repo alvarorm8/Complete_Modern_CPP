@@ -37,8 +37,8 @@ void ProcessRecords(int count) {
 			std::cout << "[ERROR " << ex.what() << "]" << std::endl;
 			if (errors > 4) {
 				std::runtime_error err("Too many errors. Abandoning operation");
-				ex = err;
-				throw;
+				ex = err;//since ex is a reference, we modify the original error
+				throw;//rethrow the error outside the local try-catch. If we don't modify the error, it will throw the same error.
 			}
 		}
 	}
@@ -63,12 +63,23 @@ void ProcessRecordsOld(int count) {
 	for (int i = 0; i < count; ++i) {
 		pArray[i] = i;
 	}
-	//Unreachable code in case of an exception
+	//Unreachable code in case of an exception, memory leak
 	free(pArray);
 	delete[] p;
 	delete t;
 
 }
+/*
+* If an exception is thrown, all local objects created on the stack are destroyed. This is known as
+* stack unwinding. But for objects created on the heap, this does not happen, and it will cause a memory
+* leak.
+* 
+* To prevent this, we can use modern C++ features, like smart pointers or vectors. This will cause that stack unwinding
+* destroys smart pointers, vectors, etc., since they are local objects, and, in that destruction, the destructors of the 
+* resources that smart pointers hold will be called.
+* 
+* This is one important reason why modern C++ discourages the use of raw pointers.
+*/
 int main() {
 	try {
 		//ProcessRecords(std::numeric_limits<int>::max());
