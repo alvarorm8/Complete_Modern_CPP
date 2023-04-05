@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+//IMPORTANT: EOF bit is not added to binary files
 struct Record {
 	int id;
 	char name[10];

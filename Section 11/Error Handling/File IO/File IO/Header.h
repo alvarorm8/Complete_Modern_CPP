@@ -1,3 +1,8 @@
+/*
+* iostream: console input/output
+* fstream: file input/output
+* stringstream (or sstream): buffer input/output
+*/
 #pragma once
 #include <iostream>
 #include <fstream>
