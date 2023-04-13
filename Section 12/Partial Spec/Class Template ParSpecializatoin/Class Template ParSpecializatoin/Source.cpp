@@ -71,6 +71,8 @@ int main() {
 	int data = 800;
 	PrettyPrinter<int, 80> p{ &data };
 	p.Print();
+	SmartPointer<int> s{ new int{3} };
+	std::cout << *s << std::endl;
 	SmartPointer<int[]> s1{ new int[5] };
 	s1[0] = 5;
 	std::cout << s1[0] << std::endl;

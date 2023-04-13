@@ -5,12 +5,15 @@ class Stack {
 	int m_Top{ -1 };
 public:
 	Stack() = default;
-	Stack(const Stack<T, size> &obj) {
+	// Copy constructor
+	Stack(const Stack &obj) { //short hand notation can be used inside the class
+		std::cout << "Calling copy constructor" << std::endl;
 		m_Top = obj.m_Top;
 		for (int i = 0; i <= m_Top; ++i) {
 			m_Buffer[i] = obj.m_Buffer[i];
 		}
 	}
+
 	void Push(const T &elem) {
 		m_Buffer[++m_Top] = elem;
 	}
@@ -28,6 +31,7 @@ public:
 	static Stack Create();
 };
 
+// We can define a function outside, like we would do in a .cpp file
 template<typename T, int size>
 void Stack<T, size>::Pop() {
 	--m_Top;
@@ -37,10 +41,13 @@ template<typename T, int size>
 /*
 Longhand notation for class name as return type,
 because it appears outside the class
+
+We have to define the complete template type return
 */
 Stack<T, size> Stack<T, size>::Create() {
 	return Stack<T, size>();
 }
+
 int main() {
 	/*
 	The template parameter list is part of the type of class.
@@ -57,7 +64,7 @@ int main() {
 	s.Push(1);
 	s.Push(6);
 	s.Push(9);
-	auto s2(s);
+	auto s2(std::move(s));
 	while (!s2.IsEmpty()) {
 		std::cout << s2.Top() << " ";
 		s2.Pop();
@@ -65,4 +72,5 @@ int main() {
 	Stack<char *, 5> ss;
 	ss.Push("Hello");
 	return 0;
+
 }

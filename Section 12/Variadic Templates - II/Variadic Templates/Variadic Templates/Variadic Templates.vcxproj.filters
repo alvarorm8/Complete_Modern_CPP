@@ -26,5 +26,8 @@
     <ClInclude Include="Integer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Assignment4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
