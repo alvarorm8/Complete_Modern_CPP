@@ -36,12 +36,19 @@ struct EmpIds {
 	}
 };
 void UserDefined() {
+	/*
+	* For container creation with user defined objects:
+	* 
+	* For std::set: we need to provide comparison operators (by default <)
+	* For unordered_set: we need to provide hash function and equal function
+	* For std::vector: we can create it without defining, but to operate we need to provide it, like in sort below
+	*/
 	std::vector<Employee> v{
 		Employee{ "Umar", 101, "C++" },
 		Employee{ "Bob", 202, "Java"},
 		Employee{ "Joey", 200, "C++"}
 	};
-	//Use callback to avoid overloading comparison operators
+	//Use callback to avoid overloading comparison operators (and compare with other variables)
 	std::sort(v.begin(), v.end(), [](const auto &e1, const auto &e2) {
 		return e1.GetName() < e2.GetName();
 	});
@@ -63,8 +70,11 @@ void UserDefined() {
 		return e.GetProgrammingLanguage() == "C++";
 	});
 	std::cout << "Count:" << cppCount << std::endl;
+	//There's another std::count, but this accepts as 3rd argument an object, so in
+	//our Employee class we should have to implement equality operator, count_if gives
+	//you more freedom, because you can specify the operation with the lambda.
 
-	//Find if any employee knows Java
+	//Find if any employee knows Java. Same as count and count_if
 	auto itr = std::find_if(v.begin(), v.end(), [](const auto &e) {
 		return e.GetProgrammingLanguage() == "Java";
 	});
@@ -76,7 +86,8 @@ void UserDefined() {
 		std::cout << e.GetName() << std::endl;
 	});
 
-	//Get ids of all employees that know C++
+	//Get ids of all employees that know C++. for_each returns a copy (copy until C++11, std::move since C++11) of the function object passed, in this case EmpIds
+	//This is only possible with function objects (which can store a state like m_Ids), function pointers can't
 	auto foundIds = std::for_each(v.begin(), v.end(), EmpIds());
 	for (int id : foundIds.m_Ids) {
 		std::cout << "Id:" << id << std::endl;
@@ -97,6 +108,10 @@ void Set() {
 		Employee{ "Bob", 202, "Java" },
 		Employee{ "Joey", 200, "C++" }
 	};
+
+	std::sort(v.begin(), v.end(), [](const auto& e1, const auto& e2) {
+		return e1.GetName() < e2.GetName();
+		});
 
 	for (const auto &e : v) {
 		std::cout
