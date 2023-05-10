@@ -2,6 +2,8 @@
 
 This document contains information about the content of the sections and solutions in the repository, so it is easier to navigate and search information.
 
+Official C++ reference: https://en.cppreference.com/w/cpp
+
 ## Section 2 - Basic language facilities
 
 ### First Program
