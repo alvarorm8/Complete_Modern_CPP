@@ -31,6 +31,12 @@ int main() {
 	Integer a(3);
 	/*auto b(std::move(a));
 	std::cout << a << std::endl;*/
+
+	/*
+	* Since we use std::move in Process, a will be moved to the val object used inside Process
+	* and when Process ends, we can't use object a again, we have to reassign it. This way we 
+	* avoid creating a new copy of a inside Process.
+	*/
 	Process(std::move(a));
 	return 0;
 }

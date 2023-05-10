@@ -1,6 +1,9 @@
 #include "Car.h"
 #include<iostream>
 int main() {
+	/*
+	Por defecto, en una estructura los miembros son publicos, mientras que en una clase, por defecto son privados.
+	*/
 	Car c(5);
 	c.Dashboard();
 	c.Accelerate();

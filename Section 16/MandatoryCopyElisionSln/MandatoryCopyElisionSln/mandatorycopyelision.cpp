@@ -1,7 +1,7 @@
 #include <iostream>
 #define DELETE_COPY_MOVE
 /*
-* Before C++17, copy ellision was not mandatory.
+* Before C++17, copy elision was not mandatory.
 * Since C++17 it is mandatory, so copies of temporary objects are avoided, it is mandatory for expressions where you are initializing an Lvalue with an Rvalue, which are, for example:
 * - In copy initialization: item 2 we are initializing an Lvalue (n1) with an Rvalue (3)
 * - Passing by value to a function: item 3
@@ -10,7 +10,7 @@
 * When we use C++14 configuration, items 1,2,3 and 4 fails compilation since we have eliminated Copy and Move constructors in Number class.
 * When we use C++17, even if we delete Copy and Move constructors, it still works
 * 
-* If the Create() function is implemented with the possibility commented, copy ellision won't be mandatory, since it is an Lvalue, not a temporary.
+* If the Create() function is implemented with the possibility commented, copy elision won't be mandatory, since it is an Lvalue, not a temporary.
 */
 class Number {
 public:
@@ -21,7 +21,7 @@ public:
 	Number(const Number &) = delete ;
 	Number(Number &&) = delete ;
 #else
-	//Without copy constructor and move constructor, copy ellision does not work
+	//Without copy constructor and move constructor, copy elision does not work
 	Number(const Number &) {
 		std::cout << "Copy ctor\n" ;
 	}
@@ -36,11 +36,11 @@ void Foo(Number n) {
 } 
 
 Number Create() {
-	//One possible way copy ellision works
+	//One possible way copy elision works
 	//Number n{0} ;
 	//return n ;
 
-	//Second possible way copy ellision works
+	//Second possible way copy elision works
 	return Number{0} ; // 1
 }
 

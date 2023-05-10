@@ -82,7 +82,7 @@ void CallOperation() {
 	try {
 		if (throwException)
 			throw std::runtime_error{ "Data not available" };//manually throw the exception to force exception sharing between threads with promises
-		data.set_value(10); //ser value in the promise so in Operation thread can be obtained
+		data.set_value(10); //set value in the promise so in Operation thread can be obtained
 		if (result.valid()) {
 			auto sum = result.get();
 			std::cout << sum << std::endl;

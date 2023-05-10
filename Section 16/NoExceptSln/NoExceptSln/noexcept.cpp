@@ -1,8 +1,8 @@
-//C++98 syntax to indicate this function only can throw int and float exceptions, deprecated in C`++11 and eliminated in C++17
+//C++98 syntax to indicate this function only can throw int and float exceptions, deprecated in C++11 and eliminated in C++17
 void Foo0() throw(int, float) {
 }
 /*
-* C++11 replaced throw with nbexcept, but it was only for variables, like this:
+* C++11 replaced throw with noexcept, but it was only for variables, like this:
 * void (*p)() noexcept;
 *   p = Bar;
 *	p() ;

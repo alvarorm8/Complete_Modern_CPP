@@ -27,7 +27,7 @@ int main() {
 * 
 * Output Explanation:
 * 
-* Here it is clear that int* doesn’t have any information about the underlying array but if you pass an array by reference using the template the above code will work. 
+* Here it is clear that int* doesnï¿½t have any information about the underlying array but if you pass an array by reference using the template the above code will work. 
 * As reference array retains information about underlying array and its type would be int[4], not int*.
 * 
 * The syntax is the following: data_type (&name)[size] = array; 
@@ -63,7 +63,7 @@ void print(int(&arr)[size]) {
 * It can be the address of an specific function or a parameter of another function.
 * If it's the parameter to another function, when we want to use the function we have to implement that function 
 * parameter. This is usefull since we can specialize a specific part of a function without specializing the full
-* function. 
+* function. (Tnis is used in Sort function below with Comparator comp)
 * 
 * The syntax is the following:
 * 

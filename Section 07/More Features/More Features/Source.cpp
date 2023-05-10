@@ -5,11 +5,11 @@
 /*
 * -------------------------------------Deleter-------------------------------------
 * Smart pointers always call a deleter when the finished their execution, this deleter is in charge of freeing the resources 
-* the smart pointer points to. By default, the call the function delete, which frees the resources adquired with new. But in some
+* the smart pointer points to. By default, they call the function delete, which frees the resources adquired with new. But in some
 * cases we may have not adquired the resources with new. For example, we can adquire them with malloc, or adquire a different type 
 * of object which requires other function. 
 * 
-* We can specify the smart pointer, which deleter has to call when it finishes its execution. I can pass any kind of callable, like a
+* We can specify in the smart pointer which deleter has to call when it finishes its execution. I can pass any kind of callable, like a
 * global function, a lambda expression, etc.
 * 
 * I have to pass the type of deleter: a function, a class, a structure, etc., and then the deleter. For example in function UniquePtrDeleters

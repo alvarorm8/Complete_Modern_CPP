@@ -14,7 +14,7 @@
 * }
 * 
 * The std::is_floating_point<T>::value is evaluated at compile time, but the comparison with false is evaluated at runtime. 
-* Since the information of floating point is known at compile time, we want to evaluate the comparison at compile time so +
+* Since the information of floating point is known at compile time, we want to evaluate the comparison at compile time so
 * it is more efficient.
 * 
 * For this reason, static_assert can be used.

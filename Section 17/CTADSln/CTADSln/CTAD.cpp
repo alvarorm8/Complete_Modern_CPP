@@ -28,7 +28,7 @@ int main() {
 	Data d2{8.2f} ;//New way
 
 	Data d3 = d1 ;//New way
-	auto d4 = new Data{"Hello"} ;//New way with objectd on the heap
+	auto d4 = new Data{"Hello"} ;//New way with object on the heap
 
 	Data d5{"Hello"} ;
 
